@@ -17,7 +17,7 @@ class {{classname}} {
     if (json == null) return;
   {{#vars}}
   {{#isDateTime}}
-    {{name}} = json['{{baseName}}'] == null ? null : DateTime.parse(json['{{baseName}}']);
+    {{name}} = json['{{baseName}}'] == null ? null : new DateTime.fromMillisecondsSinceEpoch(json['{{baseName}}'].toInt() * 1000);
   {{/isDateTime}}
   {{#isDate}}
     {{name}} = json['{{baseName}}'] == null ? null : DateTime.parse(json['{{baseName}}']);
